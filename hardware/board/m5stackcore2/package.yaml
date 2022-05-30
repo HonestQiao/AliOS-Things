@@ -15,6 +15,7 @@ tag: 核心模块                                      # <可选项> 组件分�
 #   - aos: >=v7.2.0
 depends:
   - espressif_esp32: master
+  - espressif_adf: master
 
 board:
   chip_name: espressif_esp32
@@ -40,6 +41,7 @@ def_config:
   MICROPY_PY_UCLOUD_AI: 1
   MICROPY_PY_MINICV: 1
   MICROPY_PY_LVGL: 1
+  MICROPY_PY_TFT: 1
   MICROPY_PY_AUDIO: 1
   MICROPY_PY_SNTP: 1
 
@@ -55,8 +57,6 @@ def_config:
   #  CONFIG_LFS_PAGE_NUM_PER_BLOCK: 4 # choose the right value for nand, and usually any value for nor
   #  CONFIG_LFS_BLOCK_NUMS: 1198 # the total block count for lfs parition
   MICROPY_PY_UCAMERA: 1
-  MICROPY_PY_DISPLAY: 1
-  MICROPY_PY_DISPLAY_TFT: 1
-  MICROPY_PY_DISPLAY_LVGL: 1
   CONFIG_UART_CAMERA_ENABLE: 1
+  MICROPY_PY_CHANNEL_ENABLE: 1
 

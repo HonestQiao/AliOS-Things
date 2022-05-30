@@ -7,6 +7,8 @@
 #include <stdint.h>
 #include <alloca.h>
 #include "esp_system.h"
+#include "freertos/FreeRTOS.h"
+// #include "driver/i2s.h"
 
 // object representation and NLR handling
 #define MICROPY_OBJ_REPR                    (MICROPY_OBJ_REPR_A)
@@ -62,6 +64,8 @@
 #define MICROPY_SCHEDULER_DEPTH             (8 * 2)
 #define MICROPY_VFS                         (1)
 #define MICROPY_VFS_POSIX                   (1)
+#define MICROPY_VFS_FAT                     (1)
+#define MICROPY_FATFS_NORTC                 (1)
 
 // control over Python builtins
 #define MICROPY_PY_FUNCTION_ATTRS           (1)
@@ -248,12 +252,14 @@ struct mp_bluetooth_nimble_root_pointers_t;
 #define MICROPY_PORT_ROOT_POINTER_BLUETOOTH_NIMBLE
 #endif
 
+#include "soc/soc_caps.h"
 #define MICROPY_PORT_ROOT_POINTERS \
     LV_ROOTS \
     void *mp_lv_user_data; \
     const char *readline_hist[8]; \
     mp_obj_t machine_pin_irq_handler[40]; \
     struct _machine_timer_obj_t *machine_timer_obj_head; \
+    struct _machine_i2s_obj_t *machine_i2s_obj[SOC_I2S_NUM]; \
     MICROPY_PORT_ROOT_POINTER_BLUETOOTH_NIMBLE
 
 // type definitions for the specific machine

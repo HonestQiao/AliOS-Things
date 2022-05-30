@@ -22,6 +22,9 @@ ULN2003A，是一种高压大电流的共发射极达林顿晶体管数组集成
 
 ## 三、软件接口
 
+ULN2003A步进电机驱动HaaS Python驱动：[下载地址](https://github.com/alibaba/AliOS-Things/tree/master/haas_lib_bundles/python/libraries/uln2003)
+<br>
+
 ### ULN2003(A, A_, B, B_) - 创建ULN2003驱动对象
 * 函数原型:
 > motorObj = ULN2003(a, a_, b, b_)
@@ -131,28 +134,28 @@ while 1:
         "type": "GPIO",
         "port": 19,
         "dir": "output",
-        "pull": "pullup"
+        "pull": "pushpull"
       },
 
       "uln2003_a_": {
         "type": "GPIO",
         "port": 27,
         "dir": "output",
-        "pull": "pullup"
+        "pull": "pushpull"
       },
 
       "uln2003_b": {
         "type": "GPIO",
         "port": 0,
         "dir": "output",
-        "pull": "pullup"
+        "pull": "pushpull"
       },
 
       "uln2003_b_": {
         "type": "GPIO",
         "port": 2,
         "dir": "output",
-        "pull": "pullup"
+        "pull": "pushpull"
       }
     },
     "debugLevel": "ERROR",
